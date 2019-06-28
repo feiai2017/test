@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 </head>
 <body>
-$END$
+
+<div id="sub">
+    <input type="text" placeholder="edit me" ref="input1">
+    <button v-on:click="subMessage">提交</button>
+</div>
+
+<script>
+
+    function init() {
+        console.log('start');
+        ws = new WebSocket("ws://47.100.242.194:55151");
+        ws.onopen = function () {
+            ws.send('arms');
+        }
+        
+
+    }
+    var sub = new Vue({
+        el : '#sub',
+        methods : {
+            subMessage: function (event) {
+                ws.send(this.$refs.input1.value);
+            }
+        }
+    })
+
+    methods: {
+        ws = new WebSocket("ws://47.100.242.194:55151");
+        ws.onmessage = function (event) {
+            var data = event.data;
+            console.log(data);
+        }
+    }
+
+
+
+    // window.onload = init();
+</script>
 </body>
 </html>
