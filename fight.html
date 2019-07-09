@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 </head>
 <body>
-
+<div id="screen" v-bind:style="subjectStyle">{{message}}</div>
 <div id="sub">
     <input type="text" placeholder="edit me" ref="input1">
     <button v-on:click="subMessage">提交</button>
@@ -23,20 +23,50 @@
         
 
     }
+    var screen = new Vue({
+        el : '#screen',
+        data : {
+            subjectStyle : {
+                width : '400px',
+                height : '800px',
+                border: '1px solid #000',
+            },
+            message : ''
+        },
+
+    });
+
     var sub = new Vue({
         el : '#sub',
         methods : {
             subMessage: function (event) {
-                ws.send(this.$refs.input1.value);
+                var test = this.$refs.input1.value;
+                ws.send(test);
             }
         }
     })
+    var index = 0;
 
     methods: {
         ws = new WebSocket("ws://47.100.242.194:55151");
         ws.onmessage = function (event) {
             var data = event.data;
             console.log(data);
+            data = JSON.parse(data);
+            if(data.type == 'ping') {
+                console.log('ping');
+            } else {
+                var str = data.content;
+                var interval = setInterval(function () {
+                    if(index == str.length + 1) {
+                        index = 0;
+                        clearInterval(interval);
+                    } else {
+                        screen.$data.message = str.substring(0, index++);
+                    }
+                }, 200);
+
+            }
         }
     }
 
