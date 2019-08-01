@@ -4,19 +4,41 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="sytle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="app">
-    <a href="http://www.apple.com" @click.prevent="handle('禁止打开')">打开链接</a>
+    <child-component>
+        <p>分发的内容</p>
+        <p>更多分发的内容</p>
+    </child-component>
 </div>
 
 <script>
+    var bus = new Vue();
+
+    Vue.component('child-component', {
+        template: '\
+        <div>\
+            <slot>\
+                <p>如果父组件没有插入内容, 我将作为默认出现</p>\
+            </slot>\
+       <div>',
+    });
     var app = new Vue({
         el: '#app',
+        data: {
+            message: ''
+        },
+        mounted: function() {
+          var _this = this;
+          bus.$on('on-message', function (msg) {
+              _this.message = msg;
+          });
+        },
         methods: {
-            handle: function (message) {
-                alert(message);
+            handleGetTotal: function (total) {
+                this.total = total;
             }
         },
         computed: {
