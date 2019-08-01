@@ -35,16 +35,7 @@ foreach ($formation_ids as $key => $value){
 
 var_dump(implode(';', $formation_ids));*/
 
-$str="1:123,12312,2345,";
-
-preg_match_all('/:[\S]+/', $str, $mat);
-
-var_dump($mat);
-
-$res = sprintf('参数一:%s,参数二:%s,参数三:%s', $mat[1][0], $mat[1][1], $mat[1][2]);
-
-var_dump($res);
-
+var_dump(1111);
 
 
 
