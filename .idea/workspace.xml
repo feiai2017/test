@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51eab409-8380-4d5b-8541-c788838ddca1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dir/clickoutside.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dir/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dir/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rank/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rank/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rank/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue.html" afterDir="false" />
-    </list>
+    <list default="true" id="51eab409-8380-4d5b-8541-c788838ddca1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
