@@ -35,10 +35,25 @@ foreach ($formation_ids as $key => $value){
 
 var_dump(implode(';', $formation_ids));*/
 
-var_dump(22222);
+$nums = [1,2,3,4,5,6,7];
 
+$k = 3;
 
+function rotate(&$nums, $k) {
+    $len = count($nums);
+    $k = $k % $len;
 
+    $i = 0;
+    $start_num = $nums[$i];
+    $tmp = $nums[ ($i + $k) % $len];
+    while ($tmp != $start_num){
+        $tmp = $nums[ ($i + $k) % $len];
+        $nums[($i+$k) % $len] = $nums[$i];
+        $i = ($i+$k) % $len;
+        $nums[($i+$k) % $len] = $tmp;
+    }
 
+}
 
-
+rotate($nums, $k);
+var_dump($nums);
