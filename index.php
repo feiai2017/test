@@ -35,7 +35,7 @@ foreach ($formation_ids as $key => $value){
 
 var_dump(implode(';', $formation_ids));*/
 
-var_dump(22122);
+var_dump(22222);
 
 
 
